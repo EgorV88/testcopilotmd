@@ -4,8 +4,12 @@ using FellowOakDicom.Imaging.Reconstruction;
 
 namespace CoPilotMD.Deidentifier
 {
-    public class DeidentifierService
+    public class DeidentifierService: BaseService
     {
+        protected override void Start()
+        {
+        }
+
         public void ProcessFileById(string fileId)
         {
             try

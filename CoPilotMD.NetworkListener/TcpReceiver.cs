@@ -6,9 +6,9 @@ namespace CoPilotMD.NetworkListener
 {
     public class TcpReceiver
     {
+        //TODO: load port from settings
         private int port = 8888;
         public int Port => port;
-
 
         private TcpListener listener;
         private Thread listenThread;

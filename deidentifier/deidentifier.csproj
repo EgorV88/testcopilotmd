@@ -23,4 +23,8 @@
 	  <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="9.0.10" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\CoPilotMD.Deidentifier\CoPilotMD.Deidentifier.csproj" />
+	</ItemGroup>
+
 </Project>
