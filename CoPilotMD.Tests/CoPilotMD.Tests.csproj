@@ -21,4 +21,10 @@
     <ProjectReference Include="..\CoPilotMD.NetworkListener\CoPilotMD.NetworkListener.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="testdata.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

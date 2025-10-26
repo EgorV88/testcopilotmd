@@ -9,17 +9,19 @@ namespace CoPilotMD.NetworkListener
 {
     public class FileLoader
     {
-
         private TcpClient client;
+        internal string lastFileId;
 
         public FileLoader(TcpClient client)
         {
             this.client = client;
         }
 
-        public void StartLoading()
+        public string StartLoading()
         {
+            lastFileId = Guid.NewGuid().ToString();
             ThreadPool.QueueUserWorkItem(Loading);
+            return lastFileId;
         }
 
         private void Loading(object? state)
@@ -28,8 +30,8 @@ namespace CoPilotMD.NetworkListener
             {
                 using NetworkStream stream = client.GetStream();
                 {
-                    string fileId = Guid.NewGuid().ToString();
-                    SaveFileFromStream(stream, fileId);
+                    
+                    SaveFileFromStream(stream, lastFileId);
                 }
             }
             catch (Exception exc)

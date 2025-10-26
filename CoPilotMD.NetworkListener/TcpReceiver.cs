@@ -13,6 +13,8 @@ namespace CoPilotMD.NetworkListener
         private TcpListener listener;
         private Thread listenThread;
 
+        public string LastFileId{get;set;}
+
         public void Start()
         {
             listener = new TcpListener(IPAddress.Any, port);
@@ -32,7 +34,7 @@ namespace CoPilotMD.NetworkListener
             {
                 TcpClient client = listener.AcceptTcpClient();
                 FileLoader loader = new FileLoader(client);
-                loader.StartLoading();
+                LastFileId = loader.StartLoading();
             }
         }
 
