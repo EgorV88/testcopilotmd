@@ -1,4 +1,5 @@
 ﻿using CoPilodMD.Core;
+using CoPilodMD.Core.pipes;
 using CoPilotMD.Monitor.Settings;
 using System.Diagnostics;
 
@@ -13,6 +14,9 @@ namespace CoPilotMD.Monitor
             Name = settings.ServiceName;
         }
 
+        protected override void Receive(object? sender, ServiceMessage msg)
+        {
+        }
 
         protected override void Start()
         {

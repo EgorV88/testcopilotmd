@@ -1,4 +1,5 @@
 ﻿using CoPilodMD.Core;
+using CoPilodMD.Core.pipes;
 using FellowOakDicom;
 using FellowOakDicom.Imaging.Reconstruction;
 
@@ -48,6 +49,10 @@ namespace CoPilotMD.Deidentifier
 
                 dicomFile.Save(fileName);
             }
+        }
+
+        protected override void Receive(object? sender, ServiceMessage msg)
+        {
         }
     }
 }

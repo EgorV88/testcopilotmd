@@ -1,4 +1,5 @@
 ﻿using CoPilodMD.Core;
+using CoPilodMD.Core.pipes;
 
 namespace CoPilotMD.NetworkListener
 {
@@ -10,6 +11,11 @@ namespace CoPilotMD.NetworkListener
         {
             receiver = new TcpReceiver();
         }
+
+        protected override void Receive(object? sender, ServiceMessage msg)
+        {
+        }
+
         protected override void Start()
         {
             receiver.Start();
