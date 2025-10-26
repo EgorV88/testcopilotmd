@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoPilodMD.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -30,7 +31,6 @@ namespace CoPilotMD.NetworkListener
             {
                 using NetworkStream stream = client.GetStream();
                 {
-                    
                     SaveFileFromStream(stream, lastFileId);
                 }
             }
@@ -46,16 +46,7 @@ namespace CoPilotMD.NetworkListener
 
         public void SaveFileFromStream(Stream stream, string fileId)
         {
-            var dir = Path.Combine("Storage", fileId);
-            if (!Directory.Exists(dir))
-            {
-                Directory.CreateDirectory(dir);
-            }
-            string fullPath = Path.Combine(dir, $"{fileId}.dcm");
-            using (FileStream fs = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
-            {
-                stream.CopyTo(fs);
-            }
+            StorageHandler.SaveDcmFile(stream, fileId);
         }
     }
 }

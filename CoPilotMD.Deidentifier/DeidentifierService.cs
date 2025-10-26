@@ -1,11 +1,32 @@
-﻿using FellowOakDicom;
+﻿using CoPilodMD.Core;
+using FellowOakDicom;
+using FellowOakDicom.Imaging.Reconstruction;
 
 namespace CoPilotMD.Deidentifier
 {
     public class DeidentifierService
     {
+        public void ProcessFileById(string fileId)
+        {
+            try
+            {
+                ProcessFile(StorageHandler.GetFileName(fileId));
+                SqlLogger.Info($"File {fileId} is deidentified");
+            }
+            catch (Exception ex)
+            {
+                SqlLogger.Error($"ProcessFileById {fileId} ERROR: {ex.Message}");
+            }
+        }
+
         public void ProcessFile(string fileName)
         {
+            if (!File.Exists(fileName))
+            {
+                SqlLogger.Error($"Cannot find file {fileName}");
+                return;
+            }
+
             var dicomFile = DicomFile.Open(fileName);
             if (dicomFile != null)
             {

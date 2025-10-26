@@ -7,15 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoPilodMD.Core", "CoPilodMD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{413345B5-3815-4790-9DED-8FDE8926A105}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "network", "network\network.csproj", "{D250F3DA-7FDC-425A-A73A-5A7843F1A97E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "network", "network\network.csproj", "{D250F3DA-7FDC-425A-A73A-5A7843F1A97E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gui", "gui\gui.csproj", "{EFBA6EA5-7545-422A-A4AA-3C7E97D9AA85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gui", "gui\gui.csproj", "{EFBA6EA5-7545-422A-A4AA-3C7E97D9AA85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "extractor", "extractor\extractor.csproj", "{0DF9A30A-1CAF-472B-B8CC-5EF69E9CD810}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "extractor", "extractor\extractor.csproj", "{0DF9A30A-1CAF-472B-B8CC-5EF69E9CD810}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deidentifier", "deidentifier\deidentifier.csproj", "{4B50039F-2F81-4E8E-BA89-6DFC15526E56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "deidentifier", "deidentifier\deidentifier.csproj", "{4B50039F-2F81-4E8E-BA89-6DFC15526E56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monitor", "monitor\monitor.csproj", "{B9F0E344-BBBB-4F0F-A603-D1E1FBEB60D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "monitor", "monitor\monitor.csproj", "{B9F0E344-BBBB-4F0F-A603-D1E1FBEB60D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{8B98F686-D93A-4126-BE5E-B9193CF9AC43}"
 	ProjectSection(SolutionItems) = preProject
@@ -26,15 +26,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{43FBFA8F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoPilotMD.NetworkListener", "CoPilotMD.NetworkListener", "{452EAF2E-5435-4E64-A309-2BABED17B1DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoPilotMD.NetworkListener", "CoPilotMD.NetworkListener\CoPilotMD.NetworkListener.csproj", "{341F9314-0CCB-420F-8F33-60D8079B8907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoPilotMD.NetworkListener", "CoPilotMD.NetworkListener\CoPilotMD.NetworkListener.csproj", "{341F9314-0CCB-420F-8F33-60D8079B8907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoPilotMD.Tests", "CoPilotMD.Tests\CoPilotMD.Tests.csproj", "{BCCA3600-CACB-442D-97C2-0A5BE125BC9A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Новая папка1", "Новая папка1", "{802EDFE2-4A4C-4433-981A-895673E233DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoPilotMD.Tests", "CoPilotMD.Tests\CoPilotMD.Tests.csproj", "{BCCA3600-CACB-442D-97C2-0A5BE125BC9A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoPilotMD.Deidentifier", "CoPilotMD.Deidentifier", "{32876728-5655-41FF-B19C-9F5D9EFF06C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoPilotMD.Deidentifier", "CoPilotMD.Deidentifier\CoPilotMD.Deidentifier.csproj", "{F86A900B-992B-409B-845D-0514C98B1CBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoPilotMD.Deidentifier", "CoPilotMD.Deidentifier\CoPilotMD.Deidentifier.csproj", "{F86A900B-992B-409B-845D-0514C98B1CBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

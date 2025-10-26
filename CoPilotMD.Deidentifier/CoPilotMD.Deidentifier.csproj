@@ -10,4 +10,8 @@
     <PackageReference Include="fo-dicom" Version="5.2.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CoPilodMD.Core\CoPilodMD.Core.csproj" />
+  </ItemGroup>
+
 </Project>

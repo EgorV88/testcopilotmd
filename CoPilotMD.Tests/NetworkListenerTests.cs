@@ -58,7 +58,7 @@ namespace CoPilotMD.Tests
             reciever.Start();
             SendTestData(reciever.Port);
             var fid = reciever.LastFileId;
-
+            Thread.Sleep(1000);
             var path = Path.Combine($"Storage", $"{fid}", $"{fid}.dcm");
 
             var savedContent = File.ReadAllText(path);
