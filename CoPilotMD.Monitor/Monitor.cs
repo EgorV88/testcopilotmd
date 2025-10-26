@@ -4,15 +4,22 @@ using System.Diagnostics;
 
 namespace CoPilotMD.Monitor
 {
-    public class Monitor
+    public class Monitor : BaseService
     {
         private MonitorSettings settings;
-        public void Start()
+        public Monitor()
+        {
+            settings = ServiceSettings.LoadSettings<MonitorSettings>("monitor.json");
+            Name = settings.ServiceName;
+        }
+
+
+        protected override void Start()
         {
             ThreadPool.QueueUserWorkItem(MonitorLoop);
         }
 
-        private void MonitorLoop(object? state)
+        internal void MonitorLoop(object? state)
         {
             int period = 1000;
             while (true)

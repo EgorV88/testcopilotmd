@@ -1,0 +1,7 @@
+﻿{
+  "ServiceName": "Monitoring",
+  "MonitorPeriodMs": 1000,
+  "Services": {
+    "GUI": "../gui/GUI.exe"
+  }
+}
