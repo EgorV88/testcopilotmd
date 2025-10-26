@@ -15,6 +15,7 @@ extractor: Extracter Process - (windows process, DLL/EXE) extracts .PNG files fr
 Libraries:
 CoPilodMD.Core - shared logic for all projects.
 CoPilotMD.NetworkListener - logic of network listener service
+CoPilotMD.Deidentifier - logic of deidentifier service
 
 Tests:
 CoPilotMD.Tests - tests of main logic parts

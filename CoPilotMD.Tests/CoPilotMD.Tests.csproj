@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CoPilotMD.Deidentifier\CoPilotMD.Deidentifier.csproj" />
     <ProjectReference Include="..\CoPilotMD.NetworkListener\CoPilotMD.NetworkListener.csproj" />
   </ItemGroup>
 
