@@ -14,4 +14,10 @@
     <ProjectReference Include="..\CoPilodMD.Core\CoPilodMD.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="deidentifier.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

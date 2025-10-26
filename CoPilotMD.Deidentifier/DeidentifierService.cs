@@ -7,6 +7,11 @@ namespace CoPilotMD.Deidentifier
 {
     public class DeidentifierService: BaseService
     {
+        
+        public DeidentifierService() 
+        {
+            settings = ServiceSettings.LoadSettings<ServiceSettings>("network.json");
+        }
         protected override void Start()
         {
         }

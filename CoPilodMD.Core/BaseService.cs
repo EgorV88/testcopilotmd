@@ -7,8 +7,10 @@ namespace CoPilodMD.Core
 {
     public abstract class BaseService: BackgroundService
     {
-        public string Name { get; protected set; }
-        public string NextService { get; protected set; }
+        protected ServiceSettings settings;
+
+        public string Name => settings.ServiceName;
+        public string NextService => settings.NextService;
         protected PipeMessenger pipe;
 
         public BaseService() { }
@@ -36,6 +38,14 @@ namespace CoPilodMD.Core
 
             this.StartService();
 
+        }
+
+        protected virtual void SendFinishNotif(ServiceMessage msg)
+        {
+            msg.Sender = Name;
+            msg.To = NextService;
+            if (!string.IsNullOrEmpty(msg.To))
+                pipe.Send(msg);
         }
 
     }

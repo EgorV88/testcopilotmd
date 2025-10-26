@@ -5,6 +5,7 @@ namespace CoPilodMD.Core
     public class ServiceSettings
     {
         public string ServiceName { get; set; }
+        public string NextService { get; set; }
 
         public static T LoadSettings<T>(string path) where T : ServiceSettings
         {

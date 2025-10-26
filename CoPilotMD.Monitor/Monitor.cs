@@ -7,11 +7,10 @@ namespace CoPilotMD.Monitor
 {
     public class Monitor : BaseService
     {
-        private MonitorSettings settings;
+        private MonitorSettings m_settings => settings as MonitorSettings;
         public Monitor()
         {
             settings = ServiceSettings.LoadSettings<MonitorSettings>("monitor.json");
-            Name = settings.ServiceName;
         }
 
         protected override void Receive(object? sender, ServiceMessage msg)
@@ -28,9 +27,9 @@ namespace CoPilotMD.Monitor
             int period = 1000;
             while (true)
             {
-                if (settings != null && settings.Services != null)
+                if (settings != null && m_settings.Services != null)
                 {
-                    foreach (var kvp in settings.Services)
+                    foreach (var kvp in m_settings.Services)
                     {
                         SqlLogger.Info($"Check state of {kvp.Key} service");
                         if (!IsServiceLive(kvp.Value))
