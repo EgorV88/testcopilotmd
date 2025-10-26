@@ -10,6 +10,8 @@ namespace CoPilotMD.NetworkListener
         private int port = 8888;
         public int Port => port;
 
+        internal EventHandler<string> onFinished;
+
         private TcpListener listener;
         private Thread listenThread;
 
@@ -34,6 +36,7 @@ namespace CoPilotMD.NetworkListener
             {
                 TcpClient client = listener.AcceptTcpClient();
                 FileLoader loader = new FileLoader(client);
+                loader.onFinished += onFinished;
                 LastFileId = loader.StartLoading();
             }
         }

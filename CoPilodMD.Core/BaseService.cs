@@ -45,7 +45,10 @@ namespace CoPilodMD.Core
             msg.Sender = Name;
             msg.To = NextService;
             if (!string.IsNullOrEmpty(msg.To))
+            {
                 pipe.Send(msg);
+                SqlLogger.Info($"notif {msg.Topic} sent to {NextService}");
+            }
         }
 
     }

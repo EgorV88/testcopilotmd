@@ -12,6 +12,7 @@ namespace CoPilotMD.NetworkListener
     {
         private TcpClient client;
         internal string lastFileId;
+        internal EventHandler<string> onFinished;
 
         public FileLoader(TcpClient client)
         {
@@ -32,6 +33,8 @@ namespace CoPilotMD.NetworkListener
                 using NetworkStream stream = client.GetStream();
                 {
                     SaveFileFromStream(stream, lastFileId);
+                    if (onFinished != null)
+                        onFinished(this, lastFileId);
                 }
             }
             catch (Exception exc)

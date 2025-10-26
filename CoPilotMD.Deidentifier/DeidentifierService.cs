@@ -12,6 +12,7 @@ namespace CoPilotMD.Deidentifier
         {
             settings = ServiceSettings.LoadSettings<ServiceSettings>("network.json");
         }
+
         protected override void Start()
         {
         }
@@ -22,6 +23,11 @@ namespace CoPilotMD.Deidentifier
             {
                 ProcessFile(StorageHandler.GetFileName(fileId));
                 SqlLogger.Info($"File {fileId} is deidentified");
+                SendFinishNotif(new ServiceMessage()
+                {
+                    Topic = ServiceMessage.TopicFile,
+                    Message = fileId
+                });
             }
             catch (Exception ex)
             {
@@ -53,11 +59,22 @@ namespace CoPilotMD.Deidentifier
                 dataset.AddOrUpdate(DicomTag.AccessionNumber, "");
 
                 dicomFile.Save(fileName);
+
+           
             }
         }
 
         protected override void Receive(object? sender, ServiceMessage msg)
         {
+            if (msg == null) return;
+            switch (msg.Topic.ToLower())
+            {
+                case ServiceMessage.TopicFile:
+                    {
+                        Task.Run(() => { ProcessFile(msg.Message); });
+                        break;
+                    }
+            }
         }
     }
 }
