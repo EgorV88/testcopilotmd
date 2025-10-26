@@ -17,6 +17,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deidentifier", "deidentifie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monitor", "monitor\monitor.csproj", "{B9F0E344-BBBB-4F0F-A603-D1E1FBEB60D8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{8B98F686-D93A-4126-BE5E-B9193CF9AC43}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{43FBFA8F-70C1-44FE-896B-25720B2002FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetworkListener", "NetworkListener", "{452EAF2E-5435-4E64-A309-2BABED17B1DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoPilotMD.NetworkListener", "CoPilotMD.NetworkListener\CoPilotMD.NetworkListener.csproj", "{341F9314-0CCB-420F-8F33-60D8079B8907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoPilotMD.Tests", "CoPilotMD.Tests\CoPilotMD.Tests.csproj", "{BCCA3600-CACB-442D-97C2-0A5BE125BC9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,12 +60,22 @@ Global
 		{B9F0E344-BBBB-4F0F-A603-D1E1FBEB60D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9F0E344-BBBB-4F0F-A603-D1E1FBEB60D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9F0E344-BBBB-4F0F-A603-D1E1FBEB60D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{341F9314-0CCB-420F-8F33-60D8079B8907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{341F9314-0CCB-420F-8F33-60D8079B8907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{341F9314-0CCB-420F-8F33-60D8079B8907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{341F9314-0CCB-420F-8F33-60D8079B8907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCA3600-CACB-442D-97C2-0A5BE125BC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCA3600-CACB-442D-97C2-0A5BE125BC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCA3600-CACB-442D-97C2-0A5BE125BC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCA3600-CACB-442D-97C2-0A5BE125BC9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8ED58A2B-9EA1-4785-90EE-455E67107AC7} = {413345B5-3815-4790-9DED-8FDE8926A105}
+		{341F9314-0CCB-420F-8F33-60D8079B8907} = {452EAF2E-5435-4E64-A309-2BABED17B1DA}
+		{BCCA3600-CACB-442D-97C2-0A5BE125BC9A} = {43FBFA8F-70C1-44FE-896B-25720B2002FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {910151D4-EE7A-4EA5-9949-2DF29E264D8C}
