@@ -18,15 +18,15 @@ namespace CoPilodMD.Core
 
         public static void Info(string message)
         {
-            logger.Info(message);
+            logger?.Info(message);
         }
 
         public static void Error(string message, Exception ex = null)
         {
             if (ex != null)
-                logger.Error(ex, message);
+                logger?.Error(ex, message);
             else
-                logger.Error(message);
+                logger?.Error(message);
         }
 
     }
