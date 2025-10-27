@@ -1,4 +1,5 @@
 ﻿using NLog;
+using System.Data.SQLite;
 
 namespace CoPilodMD.Core
 {
@@ -8,6 +9,7 @@ namespace CoPilodMD.Core
 
         static SqlLogger()
         {
+            CreateLogDbIfNeed();
         }
 
         public static void InitLogger(Logger log)
@@ -27,6 +29,22 @@ namespace CoPilodMD.Core
                 logger?.Error(ex, message);
             else
                 logger?.Error(message);
+        }
+
+        public static void CreateLogDbIfNeed()
+        {
+            if (File.Exists("../Log.db3"))
+                return;
+
+            using (SQLiteConnection connection = new SQLiteConnection("Data Source=../Log.db3;Version=3;"))
+            using (SQLiteCommand command = new SQLiteCommand(
+             "CREATE TABLE Log (Timestamp TEXT, Loglevel TEXT, Logger TEXT, Message TEXT)",
+             connection))
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+
         }
 
     }

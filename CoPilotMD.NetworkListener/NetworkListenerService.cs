@@ -35,7 +35,7 @@ namespace CoPilotMD.NetworkListener
 
         public override void Dispose()
         {
-            receiver.Dispose();
+            //receiver.Dispose();
             base.Dispose();
         }
     }
