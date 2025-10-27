@@ -9,7 +9,7 @@ namespace CoPilotMD.Deidentifier
         
         public DeidentifierService() 
         {
-            settings = ServiceSettings.LoadSettings<ServiceSettings>("network.json");
+            settings = ServiceSettings.LoadSettings<ServiceSettings>("deidentifier.json");
         }
 
         protected override void Start()
@@ -20,8 +20,10 @@ namespace CoPilotMD.Deidentifier
         {
             try
             {
+                SendClientLogs($"Start to process file {fileId}");
                 ProcessFile(StorageHandler.GetFileName(fileId));
                 SqlLogger.Info($"File {fileId} is deidentified");
+                SendClientLogs($"File {fileId} is deidentified");
                 SendFinishNotif(new ServiceMessage()
                 {
                     Topic = ServiceMessage.TopicFile,

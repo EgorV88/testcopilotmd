@@ -24,10 +24,11 @@ namespace CoPilodMD.Core
 
         protected abstract void Receive(object? sender, ServiceMessage msg);
 
-        private void StartService()
+        public void StartService()
         {
             InitPipe();
             Start();
+            SendClientLogs($"Service started");
         }
 
         protected abstract void Start();
@@ -37,7 +38,6 @@ namespace CoPilodMD.Core
             SqlLogger.InitLogger(LogManager.GetCurrentClassLogger());
 
             this.StartService();
-
         }
 
         protected virtual void SendFinishNotif(ServiceMessage msg)
@@ -48,6 +48,20 @@ namespace CoPilodMD.Core
             {
                 pipe.Send(msg);
                 SqlLogger.Info($"notif {msg.Topic} sent to {NextService}");
+            }
+        }
+
+        protected void SendClientLogs(string message)
+        {
+            var msg = new ServiceMessage();
+            msg.Sender = Name;
+            msg.To = "GUI";
+            msg.Topic = ServiceMessage.TopicHumanizedLogs;
+            msg.Message = message;
+            if (!string.IsNullOrEmpty(msg.To))
+            {
+                pipe.Send(msg);
+                SqlLogger.Info($"logs {msg.Topic} sent ");
             }
         }
 

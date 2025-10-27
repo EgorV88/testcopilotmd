@@ -15,6 +15,7 @@ namespace CoPilotMD.NetworkListener
 
         private void OnReceiveFinish(object? sender, string fileId)
         {
+            SendClientLogs($"File {fileId} recieved");
             var msg = new ServiceMessage()
             {
                 Topic = ServiceMessage.TopicFile,
@@ -30,6 +31,12 @@ namespace CoPilotMD.NetworkListener
         protected override void Start()
         {
             receiver.Start();
+        }
+
+        public override void Dispose()
+        {
+            receiver.Dispose();
+            base.Dispose();
         }
     }
 }

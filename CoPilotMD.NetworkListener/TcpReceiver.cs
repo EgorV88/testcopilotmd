@@ -4,7 +4,7 @@ using CoPilodMD.Core;
 
 namespace CoPilotMD.NetworkListener
 {
-    public class TcpReceiver
+    public class TcpReceiver: IDisposable
     {
         //TODO: load port from settings
         private int port = 8888;
@@ -41,6 +41,10 @@ namespace CoPilotMD.NetworkListener
             }
         }
 
-
+        public void Dispose()
+        {
+            listener.Stop();
+            listener.Dispose();
+        }
     }
 }

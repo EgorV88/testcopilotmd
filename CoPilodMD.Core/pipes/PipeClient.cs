@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO.Pipes;
+using System.Linq.Expressions;
 
 namespace CoPilodMD.Core.pipes
 {
@@ -14,18 +15,22 @@ namespace CoPilodMD.Core.pipes
 
         public void Send(ServiceMessage message)
         {
-            using (var client = new NamedPipeClientStream(".", message.To, PipeDirection.Out))
+            try
             {
-                client.Connect();
-                message.Sender = ServiceName;
-                var json = JsonConvert.SerializeObject(message);
-                using (var writer = new StreamWriter(client))
+                using (var client = new NamedPipeClientStream(".", message.To, PipeDirection.Out))
                 {
-                    writer.AutoFlush = true;
-                    writer.WriteLine(json);
-                    SqlLogger.Info($"Sent {json}");
+                    client.Connect();
+                    message.Sender = ServiceName;
+                    var json = JsonConvert.SerializeObject(message);
+                    using (var writer = new StreamWriter(client))
+                    {
+                        writer.AutoFlush = true;
+                        writer.WriteLine(json);
+                        SqlLogger.Info($"Sent {json}");
+                    }
                 }
             }
+            catch { }
         }
 
     }

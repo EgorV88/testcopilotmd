@@ -18,4 +18,8 @@
 		<OutputPath>..\GUI\bin\Release\gui\</OutputPath>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\CoPilotMD.GuiClient\CoPilotMD.GuiClient.csproj" />
+	</ItemGroup>
+
 </Project>

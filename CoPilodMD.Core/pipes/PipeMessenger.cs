@@ -33,7 +33,7 @@ namespace CoPilodMD.Core.pipes
 
         internal void Send(ServiceMessage msg)
         {
-            client.Send(msg);
+            Task.Run(() => { client.Send(msg); });
         }
     }
 }

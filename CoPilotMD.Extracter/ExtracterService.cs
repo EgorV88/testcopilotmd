@@ -10,7 +10,7 @@ namespace CoPilotMD.Extracter
     {
         public ExtracterService()
         {
-            settings = ServiceSettings.LoadSettings<ServiceSettings>("exract.json");
+            settings = ServiceSettings.LoadSettings<ServiceSettings>("extract.json");
             new DicomSetupBuilder()
                 .RegisterServices(s => s.AddImageManager<ImageSharpImageManager>())
                 .Build();
@@ -36,6 +36,7 @@ namespace CoPilotMD.Extracter
         {
             try
             {
+                SendClientLogs($"Start to process file {fileId}");
                 var fileName = StorageHandler.GetFileName(fileId);
                 var dir = StorageHandler.GetDir(fileId);
                 if (!File.Exists(fileName))
@@ -61,6 +62,7 @@ namespace CoPilotMD.Extracter
 
 
                 SqlLogger.Info($"File {fileId} is extracted");
+                SendClientLogs($"File {fileId} is extracted");
                 SendFinishNotif(new ServiceMessage()
                 {
                     Topic = ServiceMessage.TopicFile,

@@ -35,6 +35,7 @@ namespace CoPilotMD.Monitor
                         if (!IsServiceLive(kvp.Value))
                         {
                             SqlLogger.Info($"Process {kvp.Key} ({kvp.Value}) does not exists. Start new");
+                            SendClientLogs($"Process {kvp.Key} ({kvp.Value}) does not exists. Start new");
                             RunService(kvp.Value);
                         }
                     }
@@ -56,9 +57,14 @@ namespace CoPilotMD.Monitor
             return false;
         }
 
-        private void RunService(string path)
+        private bool RunService(string path)
         {
-            Process.Start(path);
+            var p = new Process();
+            p.StartInfo.FileName = path;
+            p.StartInfo.WorkingDirectory = Path.GetDirectoryName(path);
+            p.Start();
+
+            return p != null && !p.HasExited;
         }
     }
 }

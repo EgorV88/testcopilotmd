@@ -2,6 +2,9 @@
   "ServiceName": "Monitoring",
   "MonitorPeriodMs": 1000,
   "Services": {
-    "GUI": "../gui/GUI.exe"
+    "GUI": "../gui/gui.exe",
+    "Extract": "../extractor/extractor.exe",
+    "Deident": "../deidentifier/deidentifier.exe",
+    "Network": "../network/network.exe"
   }
 }

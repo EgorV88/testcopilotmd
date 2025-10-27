@@ -7,7 +7,7 @@
         public string Topic { get; set; }
         public string Message { get; set; }
 
-
         public const string TopicFile = "file";
+        public const string TopicHumanizedLogs = "hlogs";
     }
 }
