@@ -1,7 +1,6 @@
 ﻿using CoPilodMD.Core;
 using CoPilodMD.Core.pipes;
 using FellowOakDicom;
-using FellowOakDicom.Imaging.Reconstruction;
 
 namespace CoPilotMD.Deidentifier
 {
@@ -71,7 +70,7 @@ namespace CoPilotMD.Deidentifier
             {
                 case ServiceMessage.TopicFile:
                     {
-                        Task.Run(() => { ProcessFile(msg.Message); });
+                        Task.Run(() => { ProcessFileById(msg.Message); });
                         break;
                     }
             }

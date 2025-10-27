@@ -16,6 +16,7 @@ Libraries:
 CoPilodMD.Core - shared logic for all projects.
 CoPilotMD.NetworkListener - logic of network listener service
 CoPilotMD.Deidentifier - logic of deidentifier service
+CoPilotMD.Extracter - logic of Extracter Process
 CoPilotMD.Monitor - logic of Monitoring Service
 
 Tests:
